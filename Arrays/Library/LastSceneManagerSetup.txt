@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/2nd/Ball.unity
+- path: Assets/4th/Rooms.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
