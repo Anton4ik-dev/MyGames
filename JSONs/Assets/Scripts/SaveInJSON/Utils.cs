@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Utils
 {
-    private const string PATH = @"C:\Users\Антон\Desktop\My projects\JSONs\Assets\Resources\DataBase_Parsed.txt";
+    private const string PATH = @"C:\Users\Антон\Documents\MyGames\JSONs\Assets\Resources\DataBase_Parsed.txt";
     public static void ParseCSV()
     {
         TextAsset content = Resources.Load<TextAsset>("DataBase");

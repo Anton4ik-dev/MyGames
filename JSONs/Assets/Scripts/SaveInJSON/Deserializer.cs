@@ -7,7 +7,7 @@ using System.IO;
 public class Deserializer : MonoBehaviour
 {
     private SomeData[] data;
-    private const string PATH = @"C:\Users\Антон\Desktop\My projects\JSONs\Assets\Resources\DataBase_Parsed.txt";
+    private const string PATH = @"C:\Users\Антон\Documents\MyGames\JSONs\Assets\Resources\DataBase_Parsed.txt";
 
     private SomeData[] DeserializedDB()
     {
