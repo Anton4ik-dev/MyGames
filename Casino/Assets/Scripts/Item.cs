@@ -7,10 +7,12 @@ public class Item : MonoBehaviour
 {
     [HideInInspector] public ItemSO whereToPutDataSaver;
     [HideInInspector] public int itemSONum;
+    private InventoryScript scr;
     private ItemSO whereToPutData;
     private Transform path;
     private void Start()
     {
+        scr = transform.parent.parent.GetComponent<InventoryScript>();
         path = transform.parent.parent.GetChild(2);
         whereToPutData = whereToPutDataSaver;
     }
@@ -18,6 +20,8 @@ public class Item : MonoBehaviour
     public void DestroyOnClick()
     {
         Destroy(gameObject);
+        itemSONum = -1;
+        scr.fillArr();
         OnMouseExitEvent();
     }
 

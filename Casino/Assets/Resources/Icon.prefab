@@ -193,6 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f523b46570aa5b54c8bb0c5eb9794755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whereToPutDataSaver: {fileID: 0}
+  itemSONum: 0
+  scr: {fileID: 0}
 --- !u!114 &5853180358989418503
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class InventoryScript : MonoBehaviour
     private JsonSerializer serializer = new JsonSerializer();
 
     [SerializeField] private GameObject itemPrefab;
-    private int howManyItemsCreated = 0;
+    public int howManyItemsCreated = 0;
     private int rnd;
     [Range(1, 10)]
     [SerializeField]private int howManyItems;
@@ -25,6 +25,7 @@ public class InventoryScript : MonoBehaviour
     private void Awake()
     {
         PATH = Application.persistentDataPath + "/SONumbers.txt";
+        Debug.Log(PATH);
         itemDataHelp = Resources.LoadAll("Items", typeof(ItemSO));
         itemData = new ItemSO[itemDataHelp.Length];
         for (int i = 0; i < itemDataHelp.Length; i++)
@@ -51,7 +52,7 @@ public class InventoryScript : MonoBehaviour
             for (int i = 0, cnt = 0; i < contentString.Length; i++)
             {
                 bool check = int.TryParse(contentString[i].ToString(), out int res);
-                if (check)
+                if (check && res != -1)
                 {
                     itemPrefab.GetComponent<Image>().sprite = itemData[res].ItemSprite;
                     Instantiate(itemPrefab, transform.GetChild(0));
@@ -61,7 +62,7 @@ public class InventoryScript : MonoBehaviour
                 }
             }
             howManyItemsCreated = transform.GetChild(0).childCount;
-            fillArr(howManyItemsCreated);
+            fillArr();
         }
     }
     public void OpenChaest()
@@ -88,17 +89,24 @@ public class InventoryScript : MonoBehaviour
             Instantiate(itemPrefab, transform.GetChild(0));
             transform.GetChild(0).GetChild(howManyItemsCreated).GetComponent<Item>().whereToPutDataSaver = itemData[rnd];
             transform.GetChild(0).GetChild(howManyItemsCreated).GetComponent<Item>().itemSONum = rnd;
-            howManyItemsCreated++;
-            fillArr(howManyItemsCreated);
+            fillArr();
             SceneManager.LoadScene(0);
         }
     }
-    public void fillArr(int howManyItemsCreated)
+    public void fillArr()
     {
+        howManyItemsCreated = transform.GetChild(0).childCount;
         test = new int[howManyItemsCreated];
         for (int i = 0; i < test.Length; i++)
         {
-            test[i] = transform.GetChild(0).GetChild(i).GetComponent<Item>().itemSONum;
+            int z = transform.GetChild(0).GetChild(i).GetComponent<Item>().itemSONum;
+            if(z != -1)
+            {
+                test[i] = z;
+            } else
+            {
+                test[i]--;
+            }
         }
         serializer.Formatting = Formatting.Indented;
         using (StreamWriter sw = new StreamWriter(PATH))
