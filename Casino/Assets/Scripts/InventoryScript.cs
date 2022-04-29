@@ -25,7 +25,6 @@ public class InventoryScript : MonoBehaviour
     private void Awake()
     {
         PATH = Application.persistentDataPath + "/SONumbers.txt";
-        Debug.Log(PATH);
         itemDataHelp = Resources.LoadAll("Items", typeof(ItemSO));
         itemData = new ItemSO[itemDataHelp.Length];
         for (int i = 0; i < itemDataHelp.Length; i++)

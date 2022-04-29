@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Item : MonoBehaviour
@@ -22,6 +23,7 @@ public class Item : MonoBehaviour
         Destroy(gameObject);
         itemSONum = -1;
         scr.fillArr();
+        SceneManager.LoadScene(0);
         OnMouseExitEvent();
     }
 
