@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.layer == 3)
         {
             _hp--;
             if (_hp == 0)
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Lose"))
+        if (collision.gameObject.layer == 6)
         {
             CanvasScript.isPaused = true;
             _enemyGrid.losePanel.gameObject.SetActive(true);
