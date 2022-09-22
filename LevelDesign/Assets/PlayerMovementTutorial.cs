@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
+    [SerializeField] private Transform teleportSpot;
     [Header("Movement")]
     public float moveSpeed;
 
@@ -55,7 +56,9 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (collision.gameObject.CompareTag("Door"))
         {
             if (key == 3)
-                SceneManager.LoadScene(0);
+            {
+                transform.position = teleportSpot.position;
+            }
         }
     }
 
