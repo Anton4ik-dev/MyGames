@@ -6,6 +6,7 @@ namespace Core
     public class Bootstrapper : MonoBehaviour
     {
         [SerializeField] private ClicksChecker clickChecker;
+        [SerializeField] private ClicksPhysics clicksPhysics;
         [SerializeField] private QuitGame quitGame;
         [SerializeField] private TextUploader textUploader;
         private Game game;
@@ -14,6 +15,7 @@ namespace Core
         {
             score = new Score(textUploader);
             clickChecker.Score = score;
+            clicksPhysics.Score = score;
             textUploader.Score = score;
             game = new Game(score);
             quitGame.Game = game;

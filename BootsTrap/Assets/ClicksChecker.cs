@@ -18,7 +18,7 @@ namespace Core
         {
             if (Input.GetMouseButtonDown(0))
             {
-                score.PlayerScore++;
+                score.PlayerScore--;
             }
         }
     }
