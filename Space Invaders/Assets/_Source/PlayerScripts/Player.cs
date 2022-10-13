@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public static Invoker _invoker;
     private void Start()
     {
-        _invoker = new Invoker(FindObjectOfType<Player>());
+        _invoker = new Invoker(this);
     }
     public float speed;
     public GameObject bullet;
