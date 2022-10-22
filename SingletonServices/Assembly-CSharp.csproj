@@ -63,7 +63,7 @@
     <Compile Include="Assets\_source\ResourcePresentation\ResourcePresentationSO.cs" />
     <Compile Include="Assets\_source\ResourcePresentation\ResourceType.cs" />
     <Compile Include="Assets\_source\Core\Bootstrapper.cs" />
-    <Compile Include="Assets\_source\ResourcePresentation\EnrichmentAndDecayLogic.cs" />
+    <Compile Include="Assets\_source\ResourcePresentation\EnrichmentAndDecay.cs" />
     <Compile Include="Assets\_source\Services\DataService.cs" />
     <Compile Include="Assets\_source\Services\TimerService.cs" />
   </ItemGroup>

@@ -28,7 +28,7 @@ namespace Services
 
         public void SetEnabledSprite(GameObject whatToChange)
         {
-            ResourceType whatResourceType = whatToChange.GetComponent<EnrichmentAndDecayLogic>().ResourceType;
+            ResourceType whatResourceType = whatToChange.GetComponent<EnrichmentAndDecay>().ResourceType;
             for (int i = 0; i < resourcePresentationSO.Resources.Count; i++)
             {
                 if(resourcePresentationSO.Resources[i].ResourceType == whatResourceType)
@@ -40,7 +40,7 @@ namespace Services
         }
         public void SetDisabledSprite(GameObject whatToChange)
         {
-            ResourceType whatResourceType = whatToChange.GetComponent<EnrichmentAndDecayLogic>().ResourceType;
+            ResourceType whatResourceType = whatToChange.GetComponent<EnrichmentAndDecay>().ResourceType;
             for (int i = 0; i < resourcePresentationSO.Resources.Count; i++)
             {
                 if (resourcePresentationSO.Resources[i].ResourceType == whatResourceType)

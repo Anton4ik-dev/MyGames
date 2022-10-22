@@ -1,3 +1,4 @@
+using Services;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,16 +22,18 @@ namespace Core
         private void Start()
         {
             _mainTimer.StartTimer();
-            _button.onClick.AddListener(() => RestartGame());
+            TimerService.OnPlayerLose += Quit;
         }
-        public void Quit()
+        private void Quit()
         {
             _mainTimer.StopTimer();
             _losePanel.SetActive(true);
+            _button.onClick.AddListener(() => RestartGame());
+            TimerService.OnPlayerLose -= Quit;
         }
         private void RestartGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(0);
         }
     }
 }

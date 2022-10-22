@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resources:
   - _resourceType: 0
-    _enabledIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    _disabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _enabledIcon: {fileID: 21300000, guid: 2718c8a7be64bd44183729e9237c2882, type: 3}
+    _disabledIcon: {fileID: 21300000, guid: 4cfab58bb0723834498371072b7d827c, type: 3}
   - _resourceType: 1
-    _enabledIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    _disabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _enabledIcon: {fileID: 21300000, guid: 6b946b5c413f77a4790dd1ac4df87bc6, type: 3}
+    _disabledIcon: {fileID: 21300000, guid: b1d77e32f48c851418694b74997284c2, type: 3}
   - _resourceType: 2
-    _enabledIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    _disabledIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    _enabledIcon: {fileID: 21300000, guid: fcb7ec64f717eb046839f17dd3a100bf, type: 3}
+    _disabledIcon: {fileID: 21300000, guid: 1dd781d7793e51f4fbbe7c87658f5b8f, type: 3}
