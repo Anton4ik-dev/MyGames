@@ -57,16 +57,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_source\Core\Bootstrapper.cs" />
-    <Compile Include="Assets\_source\Core\Game.cs" />
-    <Compile Include="Assets\_source\Player\InputChecker.cs" />
-    <Compile Include="Assets\_source\Player\PlayerModel.cs" />
-    <Compile Include="Assets\_source\Player\PlayerView.cs" />
     <Compile Include="Assets\_source\Player\PlayerController.cs" />
-    <Compile Include="Assets\_source\Player\PlayerCamera.cs" />
-    <Compile Include="Assets\_source\Core\Spawner.cs" />
-    <Compile Include="Assets\_source\CollisionService\CollisionDetector.cs" />
-    <Compile Include="Assets\_source\CollisionService\CollisionService.cs" />
+    <Compile Include="Assets\_source\Player\PlayerModel.cs" />
+    <Compile Include="Assets\_source\Core\Game.cs" />
     <Compile Include="Assets\_source\Save&amp;Load\LevelLoader.cs" />
+    <Compile Include="Assets\_source\CollisionService\CollisionDetector.cs" />
+    <Compile Include="Assets\_source\Core\Spawner.cs" />
+    <Compile Include="Assets\_source\Player\InputChecker.cs" />
+    <Compile Include="Assets\_source\CollisionService\CollisionService.cs" />
+    <Compile Include="Assets\_source\Player\PlayerCamera.cs" />
+    <Compile Include="Assets\_source\Player\PlayerView.cs" />
     <Compile Include="Assets\_source\Save&amp;Load\SaveAndLoadService.cs" />
   </ItemGroup>
   <ItemGroup>
