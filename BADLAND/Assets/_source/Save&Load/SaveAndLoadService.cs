@@ -9,6 +9,8 @@ namespace SaveAndLoad
         private const string LEVEL_NUM_NAME = "levelNum";
         public int Load()
         {
+            PlayerPrefs.SetInt(LEVEL_NUM_NAME, 1);
+            PlayerPrefs.Save();
             return PlayerPrefs.GetInt(LEVEL_NUM_NAME, 1);
         }
         public void SaveAlive()

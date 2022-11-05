@@ -267,9 +267,10 @@ MonoBehaviour:
   _playerCamera: {fileID: 519420030}
   _inputChecker: {fileID: 1760565537}
   _levelParts:
-  - {fileID: 2750598294000011432, guid: ae613e1c94989dd4dbb869e5ae718580, type: 3}
-  - {fileID: 5254771744062980811, guid: a92d2b86b6c612f4fb2aecce83a7569a, type: 3}
-  _finishPart: {fileID: 2561380701952108301, guid: 15c87d902d60d4541b7a546a9af5ea7b, type: 3}
+  - {fileID: 1867421271979033660, guid: 69d3fb872df32e74389de91fb975d3dd, type: 3}
+  - {fileID: 521566222366253047, guid: 0d00085c6edd7164ba1bd578086e784a, type: 3}
+  - {fileID: 4621771504292519039, guid: d8c095a93fd93f64cb09f47b39e81fab, type: 3}
+  _finishPart: {fileID: 4363709742131240868, guid: 04a58b1cd5031ba4f951e5109d34ab09, type: 3}
 --- !u!1 &1760565536
 GameObject:
   m_ObjectHideFlags: 0

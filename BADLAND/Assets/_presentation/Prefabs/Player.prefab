@@ -140,6 +140,7 @@ MonoBehaviour:
   _transform: {fileID: 4935431184733355015}
   _horizontalSpeed: 2
   _verticalSpeed: 3.4
+  _sizeChanger: 1.5
 --- !u!114 &7177897706399265637
 MonoBehaviour:
   m_ObjectHideFlags: 0

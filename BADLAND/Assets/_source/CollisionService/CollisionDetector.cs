@@ -22,6 +22,10 @@ namespace Collision
         {
             _collisionService.CheckEnteredCollision(collision);
         }
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            _collisionService.Dropper(collision);
+        }
         private void OnCollisionExit2D(Collision2D collision)
         {
             _collisionService.CheckExitCollision(collision);

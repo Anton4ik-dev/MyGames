@@ -35,12 +35,12 @@ namespace Player
         }
         public void MakeLarger()
         {
-            _transform.localScale *= _sizeChanger;
+            _transform.localScale = new Vector3(_transform.localScale.x * _sizeChanger, _transform.localScale.y * _sizeChanger);
             _rb.mass *= _sizeChanger;
         }
         public void MakeSmaller()
         {
-            _transform.localScale /= _sizeChanger;
+            _transform.localScale = new Vector3(_transform.localScale.x / _sizeChanger, _transform.localScale.y / _sizeChanger);
             _rb.mass /= _sizeChanger;
         }
         private void CorrectRotation()

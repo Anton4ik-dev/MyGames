@@ -24,7 +24,7 @@ namespace Collision
                 _playerView.IsGrounded = true;
             } else if(collision.gameObject.layer == _layers[1])
             {
-                //dropper
+                collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             } else if(collision.gameObject.layer == _layers[2])
             {
                 _game.EndGame(false);
@@ -34,9 +34,11 @@ namespace Collision
             } else if (collision.gameObject.layer == _layers[4])
             {
                 _playerView.MakeLarger();
+                collision.gameObject.SetActive(false);
             } else if (collision.gameObject.layer == _layers[5])
             {
                 _playerView.MakeSmaller();
+                collision.gameObject.SetActive(false);
             }
         }
         public void CheckExitCollision(Collision2D collision)
@@ -44,6 +46,16 @@ namespace Collision
             if (collision.gameObject.layer == _layers[0])
             {
                 _playerView.IsGrounded = false;
+            }
+        }
+        public void Dropper(Collision2D collision)
+        {
+            if (collision.gameObject.layer == _layers[1])
+            {
+                if (_playerView.IsGrounded)
+                {
+                    _game.EndGame(false);
+                }
             }
         }
     }
