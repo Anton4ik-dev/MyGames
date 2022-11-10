@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Spawns;
 using Collision;
 using SaveAndLoad;
 using System;
@@ -11,44 +12,46 @@ namespace Core
 {
     public class Game
     {
+        public static Action<bool> OnEnd;
         private GameObject _player;
         private PlayerCamera _playerCamera;
         private PlayerModel _playerModel;
         private PlayerController _playerController;
         private PlayerView _playerView;
-        private InputChecker _inputChecker;
         private CollisionDetector _collisionDetector;
-        private CollisionService _collisionService;
-        private LevelLoader _levelLoader;
         private SaveAndLoadService _saveAndLoadService;
-        public Game(GameObject player, PlayerCamera playerCamera, PlayerModel playerModel, PlayerView playerView, InputChecker inputChecker, CollisionDetector collisionDetector, LevelLoader levelLoader, SaveAndLoadService saveAndLoadService)
+        private Spawner _spawner;
+        private GameObject _playerPrefab;
+        private CollisionService _collisionService;
+        public Game(GameObject playerPrefab, Spawner spawner, PlayerCamera playerCamera, PlayerModel playerModel, SaveAndLoadService saveAndLoadService)
         {
-            _player = player;
+            _playerPrefab = playerPrefab;
+            _spawner = spawner;
             _playerCamera = playerCamera;
 
             _playerModel = playerModel;
-            _playerView = playerView;
-            
-            _inputChecker = inputChecker;
 
-            _collisionDetector = collisionDetector;
-            _collisionService = new CollisionService(_collisionDetector.Layers, _playerView, this);
-
-            _levelLoader = levelLoader;
             _saveAndLoadService = saveAndLoadService;
 
             StartGame();
         }
         private void StartGame()
         {
-            _levelLoader.LoadLevel();
-            _playerCamera.Constructor(_player);
-            _inputChecker.Constructor(_playerModel);
-            _collisionDetector.Constructor(_collisionService);
+            _player = _spawner.SpawnPlayer(_playerPrefab);
+            _playerView = _player.GetComponent<PlayerView>();
             _playerController = new PlayerController(_playerModel, _playerView);
+
+            _collisionDetector = _player.GetComponent<CollisionDetector>();
+            _collisionService = new CollisionService(_collisionDetector.Layers, _playerView);
+            _collisionDetector.Constructor(_collisionService);
+
+            _playerCamera.Constructor(_player);
+
+            OnEnd += EndGame;
         }
-        public void EndGame(bool isAlive)
+        private void EndGame(bool isAlive)
         {
+            _playerController.Expose();
             if (isAlive)
             {
                 _saveAndLoadService.SaveAlive();
@@ -56,7 +59,6 @@ namespace Core
             {
                 _saveAndLoadService.SaveDeath();
             }
-            _playerController.Expose();
             SceneManager.LoadScene(0);
         }
     }

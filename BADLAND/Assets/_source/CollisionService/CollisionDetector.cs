@@ -24,7 +24,7 @@ namespace Collision
         }
         private void OnCollisionStay2D(Collision2D collision)
         {
-            _collisionService.Dropper(collision);
+            _collisionService.Dropper(collision); // if using only onCollisionEnter you can survive in that case
         }
         private void OnCollisionExit2D(Collision2D collision)
         {

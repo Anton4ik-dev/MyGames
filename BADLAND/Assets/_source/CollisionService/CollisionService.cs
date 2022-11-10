@@ -10,12 +10,10 @@ namespace Collision
     {
         private List<int> _layers;
         private PlayerView _playerView;
-        private Game _game;
-        public CollisionService(List<int> layers, PlayerView playerView, Game game)
+        public CollisionService(List<int> layers, PlayerView playerView)
         {
             _layers = layers;
             _playerView = playerView;
-            _game = game;
         }
         public void CheckEnteredCollision(Collision2D collision)
         {
@@ -27,10 +25,10 @@ namespace Collision
                 collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             } else if(collision.gameObject.layer == _layers[2])
             {
-                _game.EndGame(false);
+                Game.OnEnd?.Invoke(false);
             } else if (collision.gameObject.layer == _layers[3])
             {
-                _game.EndGame(true);
+                Game.OnEnd?.Invoke(true);
             } else if (collision.gameObject.layer == _layers[4])
             {
                 _playerView.MakeLarger();
@@ -54,7 +52,7 @@ namespace Collision
             {
                 if (_playerView.IsGrounded)
                 {
-                    _game.EndGame(false);
+                    Game.OnEnd?.Invoke(false);
                 }
             }
         }
