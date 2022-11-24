@@ -24,9 +24,13 @@ namespace Core
         {
             _playerStateMachine = new PlayerStateMachine();
             _gameStateMachine = new GameStateMachine();
-            playerInput.Construct(_playerStateMachine);
 
             _stateInitializer = new StateInitializer(_playerStateMachine, _gameStateMachine, stateText, firePoint, bullet, redZone, playerSprite, playerInput);
+
+            _playerStateMachine.SetStates(_stateInitializer);
+            _gameStateMachine.SetStates(_stateInitializer);
+
+            playerInput.Construct(_playerStateMachine);
 
             _gameStateMachine.StartState(typeof(Game));
         }

@@ -9,7 +9,7 @@ namespace Player
 
         public void MovePlayer(float moveHorizontal, float moveVertical)
         {
-            rb.velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
+            rb.velocity = Vector2.ClampMagnitude(new Vector2(moveHorizontal, moveVertical), 1f) * speed;
         }
     }
 }

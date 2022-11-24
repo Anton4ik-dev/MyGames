@@ -8,6 +8,12 @@ namespace StateSystem.PlayerStates
         private AStatePlayer _activeState;
         private int _activeStateNumber;
 
+        public void SetStates(StateInitializer stateInitializer)
+        {
+            states = stateInitializer.playerStates;
+            EnterNewState();
+        }
+
         public void ChangeState()
         {
             ExitOldState();
@@ -26,7 +32,7 @@ namespace StateSystem.PlayerStates
                 _activeStateNumber = 0;
         }
 
-        public void EnterNewState()
+        private void EnterNewState()
         {
             _activeState = states[_activeStateNumber];
             _activeState.Enter();

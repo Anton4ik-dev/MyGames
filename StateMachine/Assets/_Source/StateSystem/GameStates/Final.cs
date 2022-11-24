@@ -5,8 +5,8 @@ namespace StateSystem.GameStates
 {
     public class Final : AStateGame
     {
-        private FinalState _finalState;
-        public Final(GameStateMachine owner, FinalState finalState) : base(owner)
+        private FinalPlayerState _finalState;
+        public Final(GameStateMachine owner, FinalPlayerState finalState) : base(owner)
         {
             _finalState = finalState;
         }
@@ -15,14 +15,6 @@ namespace StateSystem.GameStates
         {
             Time.timeScale = 0;
             _finalState.EnterFinal();
-        }
-        public override void Update()
-        {
-
-        }
-        public override void Exit()
-        {
-
         }
     }
 }

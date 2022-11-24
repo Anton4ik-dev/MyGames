@@ -17,7 +17,7 @@ namespace StateSystem.PlayerStates
         {
             _stateText.text = GetType().Name;
         }
-        public abstract void Update();
+        public virtual void Update() { }
         public void Exit()
         {
             _stateText.text = "";

@@ -5,8 +5,13 @@ namespace StateSystem.GameStates
 {
     public class GameStateMachine
     {
-        public Dictionary<Type, AStateGame> states;
+        private Dictionary<Type, AStateGame> states;
         private AStateGame _activeState;
+
+        public void SetStates(StateInitializer stateInitializer)
+        {
+            states = stateInitializer.gameStates;
+        }
 
         public void ChangeState(Type type)
         {
