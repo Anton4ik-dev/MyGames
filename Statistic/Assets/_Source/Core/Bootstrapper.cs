@@ -14,7 +14,11 @@ namespace Core
         [SerializeField] private ViewDataSO viewDataSO;
         private void Awake()
         {
-            new FormulasInitializer(gravityFields, heightOfFallFields, newtonFields, speedFields, impulseFields, viewDataSO);
+            new GravityRule(gravityFields, viewDataSO);
+            new HeightOfFalling(heightOfFallFields, viewDataSO);
+            new SecondNewton(newtonFields, viewDataSO);
+            new Speed(speedFields, viewDataSO);
+            new Impulse(impulseFields, viewDataSO);
         }
     }
 }
